@@ -69,7 +69,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/todouserDB")
+mongoose.connect("mongodb+srv://Tasker:31ifeT78acS16Try@cluster0.f7ueu.mongodb.net/?retryWrites=true&w=majority")
 
 const userSchema = new mongoose.Schema({
   name: String,
