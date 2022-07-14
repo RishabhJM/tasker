@@ -69,7 +69,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.DB_LINK);
+mongoose.connect(`{process.env.DB_LINK});
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -322,6 +322,6 @@ app.get("/logout", (req, res) => {
   res.redirect("/login")
 })
 //------------------------------------------------------------------------------
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
   console.log("Your Server Is Up And Running")
 })

@@ -322,6 +322,6 @@ app.get("/logout", (req, res) => {
   res.redirect("/login")
 })
 //------------------------------------------------------------------------------
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
   console.log("Your Server Is Up And Running")
 })
