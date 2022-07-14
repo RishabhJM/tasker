@@ -69,7 +69,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(String(`${process.env.DB_LINK}`));
+mongoose.connect(String(`{process.env.DB_LINK}));
 
 const userSchema = new mongoose.Schema({
   name: String,
