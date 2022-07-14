@@ -185,7 +185,7 @@ app.get("/makeList", (req, res) => {
     if(err){
       console.log(err)
     } else {
-      res.render("userLists", {
+      res.render("userlists", {
         user:req.user.name,
         listName:foundLists
       })
