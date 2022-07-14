@@ -286,10 +286,6 @@ app.post("/register", (req, res) => {
         });
       } else {
         passport.authenticate('local')(req, res, () => {
-          req.session.save((err) => {
-            if (err) {
-              console.log(err);
-            }
             User.findOne({
               username: req.body.username
             }, (err, foundUser) => {
@@ -309,7 +305,6 @@ app.post("/register", (req, res) => {
                 }
               }
             })
-          });
         });
       };
 
