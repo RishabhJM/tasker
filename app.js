@@ -3,7 +3,7 @@ const express = require("express")
 const ejs = require("ejs")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
-const session = require("cookie-session")
+const session = require("express-session")
 const passport = require("passport")
 const passportLocalMongoose = require("passport-local-mongoose")
 const _ = require("lodash")
@@ -286,6 +286,10 @@ app.post("/register", (req, res) => {
         });
       } else {
         passport.authenticate('local')(req, res, () => {
+          req.session.save((err) => {
+            if (err) {
+              console.log(err);
+            }
             User.findOne({
               username: req.body.username
             }, (err, foundUser) => {
@@ -305,6 +309,7 @@ app.post("/register", (req, res) => {
                 }
               }
             })
+          });
         });
       };
 
