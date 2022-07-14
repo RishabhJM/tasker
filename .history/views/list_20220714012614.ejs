@@ -1,0 +1,76 @@
+<%- include("partials/header")  %>
+
+
+
+
+<nav class="navbar navbar-light">
+
+  <div class="container-fluid text-center row">
+
+    <div class="col-6"></div>
+    <div class="col-2">
+      <a class="btn btn-outline-dark btn-light btn-lg navbar-brand h1" href="/logout">Logout</a>
+    </div>
+
+    <div class="col-2">
+      <a class="btn btn-outline-dark btn-light btn-lg navbar-brand h1" href="/makeList">Make List</a>
+    </div>
+
+    <div class="col-2">
+      <a class="btn btn-outline-dark btn-light btn-lg navbar-brand h1" href="/Today">Welcome <%=user%></a>
+    </div>
+
+
+  </div>
+
+</nav>
+
+<!-- ------------------------------------------body------------------------- -->
+<div class="container">
+
+
+  <div class="list-group">
+
+    <div class="p-4 badge bg-light text-dark shadow-lg mb-1 rounded" style="max-width: 28.7rem;">
+      <h1><%=title%></h1>
+    </div>
+
+
+
+    <% items.forEach(function(item){ %>
+    <label class="list-group-item d-flex gap-3 shadow-lg bg-body rounded">
+      <form class="" action="/delete" method="post">
+
+        <input class="form-check-input flex-shrink-0 shadow-lg rounded" type="checkbox" name="checkedBox"
+          value="<%=item._id%>" onchange="this.form.submit()" style="font-size: 1.375em;">
+        <input type="hidden" name="checkBox_ListId" value="<%=listId%>">
+        <input type="hidden" name="hiddenList" value="<%=title%>">
+      </form>
+      <span class="pt-1 form-checked-content">
+        <p class="text-wrap"><strong><%=item.item%></strong></p>
+      </span>
+    </label>
+    <%})%>
+
+    <form class="shadow-lg bg-body rounded" action="/Today" method="post">
+
+
+      <label class="list-group-item d-flex gap-3">
+        <span class="px-5 form-checked-content">
+          <input maxlength="45" class="shadow-lg rounded" type="text" name="item" placeholder="Enter A New Item"
+            autocomplete="off" autofocus>
+          <button class="mb-4 mx-2 btn btn-lg btn-outline-dark btn-light mt-3 shadow-lg rounded" type="submit"
+            name="button" value="<%=title%>">Add Item</button>
+        </span>
+      </label>
+      <input type="hidden" name="hiddenList" value="<%=title%>">
+      <input type="hidden" name="hidden" value="<%=listId%>">
+    </form>
+  </div>
+
+</div>
+
+
+
+
+<%- include("partials/footer") %>

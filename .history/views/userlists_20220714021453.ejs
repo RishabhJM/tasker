@@ -1,0 +1,60 @@
+<%- include("partials/header")  %>
+
+<div class="user">
+  Welcome <%=user%>
+  (<a class="logout" href="/logout">Logout</a>)
+</div>
+
+<!-- <nav class="navbar navbar-light">
+
+  <div class="container">
+    <a class="btn btn-outline-dark btn-light btn-lg navbar-brand  mb-0 h1" href="/logout">Logout</a>
+
+
+
+      <a class="btn btn-outline-dark btn-light btn-lg navbar-brand  mb-0 h1" href="/Today">Welcome  <%=user%></a>
+
+  </div>
+
+</nav> -->
+
+
+
+    <!-- ----------------------------LIST MENU---------------------------- -->
+
+
+
+
+<div class="list-group">
+  <div class="p-4 badge bg-light text-dark shadow-lg mb-1 rounded" style="max-width: 28.7rem;">
+  <h1>Lists</h1>
+</div>
+
+<% listName.forEach((list) =>{ %>
+  <label class="list-group-item d-flex gap-3 shadow-lg bg-body rounded">
+    <form class="" action="/delete/list" method="post">
+
+    <input class="form-check-input flex-shrink-0 shadow-lg rounded" type="checkbox" name="listBox" value="<%=list._id%>" onchange="this.form.submit()"  style="font-size: 1.375em;">
+  </form>
+    <span class="pt-1 form-checked-content">
+      <p><strong><a class="nav-link text-reset"href="/lists/<%=list.listName%>"><%=list.listName%></a></strong></p>
+    </span>
+  </label>
+
+<%})%>
+<form class="shadow-lg bg-body rounded" action="/makeList" method="post">
+
+
+  <label class="list-group-item d-flex gap-3">
+    <span class="px-5 form-checked-content">
+      <input class="shadow-lg rounded" type="text" name="listNameInput"  placeholder="Enter A New List" autofocus>
+      <button class="mb-4 mx-2 btn btn-lg btn-outline-dark btn-light mt-3 shadow-lg rounded" type="submit" name="button" value="">Add List</button>
+    </span>
+  </label>
+
+  </form>
+</div>
+
+
+</div>
+<%- include("partials/footer") %>
