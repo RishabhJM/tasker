@@ -1,5 +1,5 @@
-# ToDo-List
-Todo Web Application
+# Tasker
+Tasker Application
 
 	~Front-end:
 
@@ -19,6 +19,6 @@ Todo Web Application
 
 --------------------------------------------------------------------------
 
-ToDO-List Web App  with user authentication using passportjs. and mongoDB
+Tasker Web App  with user authentication using passportjs. and mongoDB
 each user has his own generated item-list.
 
